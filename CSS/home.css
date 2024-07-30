@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --carMesin: #DB100C;
+    --veRde: #1AF03D;
+    --verdeMargem: #386C0B;
+    --azUl: #2780F5;
+    --amaRelo: #F4E700;
+    --roXo:#56007E;
+    --braNco: #ffffff;
+    --prEto: #000000;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--veRde);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#hH1{
+    color: var(--braNco);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+    .mAin1{
+        width: 100%;
+        height: 30%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--prEto);
+        font-size: 50px;
+        font-family: Arial, Helvetica, sans-serif;    
+    }
+    .mAin2{
+        width: 100%;
+        height: 20%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--prEto);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .mAin3{
+        width: 100%;
+        height: 60%;
+        background-color: #000000;
+    }

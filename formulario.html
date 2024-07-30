@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SongBox.Home</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/formulario.css">
+    <link rel="icon" href="./imagens/palhetaGuitarra.ico">
+    <script src="./JavaScript/funçõesJAVA.js" defer></script>
+    <style>
+        /* Adicionando estilo básico para os novos elementos */
+        .password-rules {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .password-rules span {
+            display: block;
+            margin: 5px 0;
+        }
+        .rule-valid {
+            color: green;
+            font-weight: bold;
+        }
+        .rule-invalid {
+            color: red;
+        }
+        .textarea-container {
+            margin-top: 20px;
+        }
+        #fontSizeControl {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="heaDer1">
+            <img src="./imagens/palhetaGuitarraBranca.png" alt="Logo" width="40">
+        </div>
+        <div class="heaDer2">
+            <h1 id="hH1">Song BOX</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nAv1"></div>
+        <div class="nAv2">
+            <ul>
+                <li><a href="home.html"><strong>Inicio</strong></a></li>
+                <li><a href="index.html" rel="prev"><strong>Começar</strong></a></li>
+                <li><a href="formulario.html"><strong>Criar Conta</strong></a></li>
+            </ul>
+        </div>     
+    </nav>
+
+    <main>
+        <div class="main1">
+            <form id="formulario" onsubmit="return validarFormulario()">
+                <fieldset>
+                    <legend><h1>Cadastre-se</h1></legend>
+
+                    <!-- Campos do formulário existentes -->
+
+                    <label for="idNome">Digite seu Nome: </label>
+                    <input type="text" id="idNome" name="nome" required/>
+                    <br/><br/>
+
+                    <label for="idemail">Digite seu e-mail: </label>
+                    <input type="email" id="idemail" name="email" required/>
+                    <br/><br/>
+
+                    <label for="idCPF">Digite seu CPF: </label>
+                    <input type="text" id="idCPF" name="cpf" required/>
+                    <br/><br/>
+
+                    <label>Qual seu gênero?</label>
+                    <br/>
+                    <input type="radio" name="genero" id="Feminino" value="Feminino" />
+                    <label for="Feminino">Feminino</label>
+                    <br/>
+                    <input type="radio" name="genero" id="Masculino" value="Masculino" />
+                    <label for="Masculino">Masculino</label>
+                    <br/>
+                    <input type="radio" name="genero" id="Outros" value="Outros" />
+                    <label for="Outros">Outros</label>
+                    <br/><br/>
+
+                    <label for="idIdade">Idade: </label>
+                    <input type="number" id="idIdade" name="idade" required/>
+                    <br/><br/>
+
+                    <label for="estado">De onde você vem (Sudeste do Brasil)? </label>
+                    <select id="estado" name="estado" onchange="habilitarCidades()">
+                        <option value="">Selecione</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="ES">Espirito Santo</option>
+                    </select>
+
+                    <br/><br/>
+
+                    <label for="cidade">Cidade?</label>
+                    <select id="cidade" name="cidade" disabled>
+                        <!-- As cidades serão carregadas dinamicamente -->
+                    </select>
+                    <br/><br/>
+
+                    <label>Qual o som da sua alma?</label>
+                    <br />
+                    <input type="radio" name="rock" id="rockAlternativo" value="Rock Alternativo"/>
+                    <label for="rockAlternativo">Rock Alternativo</label>
+                    <br />
+                    <input type="radio" name="rock" id="heavyMetal" value="Heavy Metal"/>
+                    <label for="heavyMetal">Heavy Metal</label>
+                    <br />
+                    <input type="radio" name="rock" id="hardMetal" value="Hard Metal"/>
+                    <label for="hardMetal">Hard Metal</label>
+                    <br />
+                    <input type="radio" name="rock" id="rockCountry" value="Rock Country"/>
+                    <label for="rockCountry">Rock Country</label>
+                    <br />
+                    <input type="radio" name="rock" id="doomMetal" value="Doom Metal"/>
+                    <label for="doomMetal">Doom Metal</label>
+                    <br />
+                    <input type="radio" name="rock" id="popRock" value="Pop Rock"/>
+                    <label for="popRock">Pop Rock</label>
+                    <br />
+                    <input type="radio" name="rock" id="glamMetal" value="Glam Rock"/>
+                    <label for="glamMetal">Glam Rock</label>
+                    <br/><br/>
+
+                    <label for="senha">Crie uma Senha: </label>
+                    <input type="password" id="senha" name="senha" required/>
+                    <br /><br/>
+
+                    <label for="confirmarSenha">Confirmar Senha: </label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" required/>
+                    <br /><br/>
+
+                    <!-- Campo textarea -->
+                    <div class="textarea-container">
+                        <label for="textarea">Comentário:</label>
+                        <textarea id="textarea" rows="4" cols="50" oninput="contarCaracteres()"></textarea>
+                        <p id="contadorCaracteres">0/200 caracteres</p>
+                    </div>
+                    
+                    <!-- Regras da senha -->
+                    <div class="password-rules">
+                        <h3>Regras da Senha:</h3>
+                        <span id="regra1" class="rule-invalid">Pelo menos 8 caracteres</span>
+                        <span id="regra2" class="rule-invalid">Pelo menos uma letra maiúscula</span>
+                        <span id="regra3" class="rule-invalid">Pelo menos um número</span>
+                    </div>
+
+                    <input type="reset" value="Apagar Tudo"/> 
+                    <input type="submit" value="Enviar" id="botaoEnv"/>
+                    <br/><br/>  
+                    
+                    <!-- Botões para mudar a cor do fundo -->
+<div id="corFundoContainer" style="margin-top: 20px;">
+    <button onclick="mudarCorFundo('lightblue')">Azul Claro</button>
+    <button onclick="mudarCorFundo('lightgreen')">Verde Claro</button>
+    <button onclick="mudarCorFundo('lightcoral')">Coral Claro</button>
+    <button onclick="mudarCorFundo('lightyellow')">Amarelo Claro</button>
+</div>
+
+<br/>
+<!-- Botões para alterar o fundo e o tamanho da fonte -->
+
+<button onclick="aumentarFonte()">Aumentar Fonte</button>
+<button onclick="diminuirFonte()">Diminuir Fonte</button>
+
+                </fieldset>
+            </form>
+
+        </div>
+    </main>
+
+    <footer><p>Song BOX</p></footer>
+</body>
+</html>

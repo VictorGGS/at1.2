@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --carMesin: #DB100C;
+    --veRde: #1AF03D;
+    --verdeMargem: #386C0B;
+    --azUl: #2780F5;
+    --amaRelo: #F4E700;
+    --roXo:#56007E;
+    --braNco: #ffffff;
+    --prEto: #000000;
+}
+
+body{
+    width: 100vw;
+    height: 150vh;
+    background-color: var(--prEto);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#hH1{
+    color: var(--braNco);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+form{
+    display: inline-block;
+}
+
+main{
+    width: 98%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+    .main1{
+        width: 25%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--veRde);
+        font-family: sans-serif;
+        border: solid var(--veRde) 1.5em;
+        border-radius: 55px;
+    }
+    #formulario{
+        padding: 1em;
+        display: block;
+    }
+    
